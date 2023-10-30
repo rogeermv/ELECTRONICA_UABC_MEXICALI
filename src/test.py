@@ -8,7 +8,7 @@ segments = [ 62, 119, 124, 57, 64, 121, 56, 121, 57, 49, 80, 63, 84, 48, 57, 119
 @cocotb.test()
 async def test_7seg(dut):
     dut._log.info("start")
-    clock = Clock(dut.clk, 15, units="us")
+    clock = Clock(dut.clk, 10, units="us")
     cocotb.start_soon(clock.start())
 
     # reset
@@ -16,7 +16,7 @@ async def test_7seg(dut):
     dut.rst_n.value = 0
     # set the compare value
     dut.ui_in.value = 1
-    await ClockCycles(dut.clk, 15)
+    await ClockCycles(dut.clk, 10)
     dut.rst_n.value = 1
 
     # the compare value is shifted 10 bits inside the design to allow slower counting
