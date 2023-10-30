@@ -12,7 +12,7 @@
 */
 
 module seg7 (
-    input wire [3:0] counter,
+      input wire [5:0] counter,
     output reg [6:0] segments
 );
 
